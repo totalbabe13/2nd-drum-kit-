@@ -15,13 +15,22 @@ body {
   border: 2px solid blue;
   border-radius: 9px;
   color: white;
+  transition: all .07s ease;
   display: grid;
   grid-template-rows: 1fr 1fr;
 }
+
+.playing {
+  transform: scale(1.1);
+  border-color: #ffc600;
+  box-shadow: 0 0 1rem #ffc600;
+}
+
 kbd {
   text-align: center;
   padding-top: 2vh;
 }
 span {
   text-align: center;
+  text-transform: uppercase;
 }
