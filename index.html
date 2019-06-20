@@ -65,24 +65,43 @@
       <audio data-key="76" src="sounds/tink.wav"></audio>
 
       <script>
-        window.addEventListener('keydown', function(e){
-          //here e is the event
-          const key   = document.querySelector(`.key[data-key="${e.keyCode}"]`)
-          const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`)
-          // the querySelector can select an element, class or id (like data-key or an audio element w/ a class)
-          if(!audio){
-            return;
-          };
-          //the currenttime property affects the length of sound?
-          audio.currentTime = 0;
-
-          //the play function PLAYS audio element
-          audio.play();
-
-        });
-
+         window.addEventListener('keydown', function(event){
+          const key   = document.querySelector(`.key[data-key="${event.keyCode}"]`)
+          const audio = document.querySelector(`audio[data-key="${event.keyCode}"]`)
+          console.log(audio)
+         });
       </script>
 
     </div>
   </body>
 </html>
+
+
+
+
+
+
+
+<!-- window.addEventListener('keydown', function(e){
+   // console.log(this) refers to window object on line 69
+   const key   = document.querySelector(`.key[data-key="${e.keyCode}"]`)
+   const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`)
+
+   if(!audio){
+     return;
+   };
+
+   audio.currentTime = 0;
+   audio.play();
+   key.classList.add("playing");
+
+   function removeTransition(e){
+     if(e.propertyName !== 'transform') return;
+
+     //(this) refers to key object on line 89
+     this.classList.remove('playing');
+   };
+
+   const keys = document.querySelectorAll('.key');
+   keys.forEach(key => key.addEventListener('transitionend',removeTransition));
+ }); -->
