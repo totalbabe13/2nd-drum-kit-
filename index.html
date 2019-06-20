@@ -11,47 +11,47 @@
 
       <div data-key="65" class="key">
         <kbd>A</kbd>
-        <span>CLAP</span>
+        <span>clap</span>
       </div>
 
       <div data-key="83" class="key">
         <kbd>S</kbd>
-        <span>HIHAT</span>
+        <span>hihat</span>
       </div>
 
       <div data-key="68" class="key">
         <kbd>D</kbd>
-        <span>KICK</span>
+        <span>kick</span>
       </div>
 
       <div data-key="70" class="key">
         <kbd>F</kbd>
-        <span>OPENHAT</span>
+        <span>openhat</span>
       </div>
 
       <div data-key="71" class="key">
         <kbd>G</kbd>
-        <span>BOOM</span>
+        <span>boom</span>
       </div>
 
       <div data-key="72" class="key">
         <kbd>H</kbd>
-        <span>RIDE</span>
+        <span>ride</span>
       </div>
 
       <div data-key="74" class="key">
         <kbd>J</kbd>
-        <span>SNARE</span>
+        <span>snare</span>
       </div>
 
       <div data-key="75" class="key">
         <kbd>K</kbd>
-        <span>TOM</span>
+        <span>tom</span>
       </div>
 
       <div data-key="76" class="key">
         <kbd>L</kbd>
-        <span>TINK</span>
+        <span>tink</span>
       </div>
 
       <audio data-key="65" src="sounds/clap.wav"></audio>
@@ -63,6 +63,25 @@
       <audio data-key="74" src="sounds/snare.wav"></audio>
       <audio data-key="75" src="sounds/tom.wav"></audio>
       <audio data-key="76" src="sounds/tink.wav"></audio>
+
+      <script>
+        window.addEventListener('keydown', function(e){
+          //here e is the event
+          const key   = document.querySelector(`.key[data-key="${e.keyCode}"]`)
+          const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`)
+          // the querySelector can select an element, class or id (like data-key or an audio element w/ a class)
+          if(!audio){
+            return;
+          };
+          //the currenttime property affects the length of sound?
+          audio.currentTime = 0;
+
+          //the play function PLAYS audio element
+          audio.play();
+
+        });
+
+      </script>
 
     </div>
   </body>
